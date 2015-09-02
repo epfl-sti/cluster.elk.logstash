@@ -18,8 +18,8 @@ RUN mkdir -p /etc/confd/conf.d
 RUN mkdir -p /etc/confd/templates
 
 # Install Logstash
-RUN curl https://download.elasticsearch.org/logstash/logstash/logstash-1.4.0.tar.gz -o /tmp/logstash-1.4.0.tar.gz
-RUn tar xfz /tmp/logstash-1.4.0.tar.gz -C /opt/logstash --strip-components=1
+RUN wget https://download.elastic.co/logstash/logstash/logstash-1.5.4.tar.gz -O /tmp/logstash-1.5.4.tar.gz
+RUN tar xfz /tmp/logstash-1.5.4.tar.gz -C /opt/logstash --strip-components=1
 
 # Add files
 ADD ./confd                   /etc/confd
