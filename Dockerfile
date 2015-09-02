@@ -12,6 +12,7 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get install -y --force-yes openjdk-7-jre-
 # https://github.com/kelseyhightower/confd/releases
 RUN wget https://github.com/kelseyhightower/confd/releases/download/v0.10.0/confd-0.10.0-linux-amd64 -O confd
 RUN mv confd /usr/local/bin/confd
+RUN chmod +x /usr/local/bin/confd
 
 # Create directories
 RUN mkdir -p /opt/logstash/ssl
