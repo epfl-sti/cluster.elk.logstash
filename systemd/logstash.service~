@@ -1,0 +1,13 @@
+[Unit]
+Description=ELK Logstash
+
+[Service]
+EnvironmentFile=/etc/environment
+ExecStartPre=/usr/bin/docker pull epflsti/logstash
+ExecStart=/usr/bin/docker run --rm --name logstash -e HOST_IP=${HOST_IP} -p 10101:10101 epflsti/logstash
+ExecStartPost=/usr/bin/etcdctl set /logstash/host ${HOST_IP}
+ExecStop=/usr/bin/docker kill logstash
+ExecStopPost=/usr/bin/etcdctl rm --dir --recursive /logstash
+
+[X-Fleet]
+X-Conflicts=logstash.service
