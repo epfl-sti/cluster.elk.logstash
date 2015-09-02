@@ -6,7 +6,7 @@ MAINTAINER Nicolas Borboën <nicolas.borboen@epfl.ch>
 
 # Install Java
 RUN DEBIAN_FRONTEND=noninteractive apt-get update
-RUN DEBIAN_FRONTEND=noninteractive apt-get install -y --force-yes openjdk-7-jre-headless wget
+RUN DEBIAN_FRONTEND=noninteractive apt-get install -y --force-yes openjdk-7-jre-headless wget curl
 
 # Install confd
 # https://github.com/kelseyhightower/confd/releases
