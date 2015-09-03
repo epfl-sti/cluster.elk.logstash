@@ -1,12 +1,12 @@
 # http://marceldegraaf.net/2014/05/05/coreos-follow-up-sinatra-logstash-elasticsearch-kibana.html
 # Marcel de Graaf <mail@marceldegraaf.net>
 
-FROM ubuntu:14.04
+FROM ubuntu:15.04
 MAINTAINER Nicolas Borboën <nicolas.borboen@epfl.ch>
 
 # Install Java
 RUN DEBIAN_FRONTEND=noninteractive apt-get update
-RUN DEBIAN_FRONTEND=noninteractive apt-get install -y --force-yes default-jre-headless wget curl
+RUN DEBIAN_FRONTEND=noninteractive apt-get install -y --force-yes openjdk-8-jre-headless wget curl
 
 # Install confd
 # https://github.com/kelseyhightower/confd/releases
