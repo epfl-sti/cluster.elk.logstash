@@ -3,8 +3,8 @@ Description=ELK Logstash
 
 [Service]
 EnvironmentFile=/etc/environment
-ExecStartPre=/usr/bin/docker pull epflsti/cluster.logstash
-ExecStart=/usr/bin/docker run --rm --name logstash -e HOST_IP=${HOST_IP} -p 10101:10101 epflsti/cluster.logstash
+ExecStartPre=/usr/bin/docker pull epflsti/cluster.elk.logstash
+ExecStart=/usr/bin/docker run --rm --name logstash -e HOST_IP=${HOST_IP} -p 10101:10101 epflsti/cluster.elk.logstash
 ExecStartPost=/usr/bin/etcdctl set /logstash/host ${HOST_IP}
 ExecStop=/usr/bin/docker kill logstash
 ExecStopPost=/usr/bin/etcdctl rm --dir --recursive /logstash
